@@ -78,8 +78,8 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>com.mysql</groupId> <!-- MIGRATED: updated MySQL groupId from 'mysql' to 'com.mysql' (Spring Boot 2.7.5+ renamed the artifact) -->
-      <artifactId>mysql-connector-j</artifactId> <!-- MIGRATED: updated MySQL artifactId from 'mysql-connector-java' to 'mysql-connector-j' -->
+      <groupId>com.mysql</groupId> <!-- MIGRATED: updated MySQL groupId from 'mysql' to 'com.mysql' (MySQL Connector/J renamed the artifact; Spring Boot 2.7.5+ updated its BOM accordingly) -->
+      <artifactId>mysql-connector-j</artifactId> <!-- MIGRATED: updated MySQL artifactId from 'mysql-connector-java' to 'mysql-connector-j' (MySQL Connector/J 8.0.31+ new artifact coordinates) -->
       <scope>runtime</scope>
     </dependency>
 
