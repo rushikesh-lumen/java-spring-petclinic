@@ -91,7 +91,10 @@
     </dependency>
 
     <!-- MIGRATED: Added explicit JAXB API dependency required by Vet/Vets JAXB annotations (javax.xml.bind)
-         as the module was removed from the JDK in Java 11+ (JEP 320) -->
+         as the module was removed from the JDK in Java 11+ (JEP 320).
+         Note: jakarta.xml.bind-api:2.3.x still provides javax.xml.bind.* packages (the namespace switch
+         to jakarta.xml.bind.* only occurred in version 3.0+ for Jakarta EE 9+). Spring Boot 2.7.x BOM
+         manages this as version 2.3.x, which is compatible with the existing javax.xml.bind.* imports. -->
     <dependency>
       <groupId>jakarta.xml.bind</groupId>
       <artifactId>jakarta.xml.bind-api</artifactId>
