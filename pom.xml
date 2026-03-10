@@ -10,14 +10,14 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.2.4.RELEASE</version>
+    <version>2.7.18</version> <!-- MIGRATED: upgraded Spring Boot from 2.2.4.RELEASE to 2.7.18 for Java 17 support -->
   </parent>
   <name>petclinic</name>
 
   <properties>
 
     <!-- Generic properties -->
-    <java.version>1.8</java.version>
+    <java.version>17</java.version> <!-- MIGRATED: updated Java source/target from 1.8 to 17 -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -27,9 +27,9 @@
     <webjars-jquery.version>2.2.4</webjars-jquery.version>
     <wro4j.version>1.8.0</wro4j.version>
 
-    <jacoco.version>0.8.5</jacoco.version>
-    <nohttp-checkstyle.version>0.0.4.RELEASE</nohttp-checkstyle.version>
-    <spring-format.version>0.0.19</spring-format.version>
+    <jacoco.version>0.8.10</jacoco.version> <!-- MIGRATED: upgraded JaCoCo from 0.8.5 to 0.8.10 for Java 17 bytecode support -->
+    <nohttp-checkstyle.version>0.0.6.RELEASE</nohttp-checkstyle.version> <!-- MIGRATED: upgraded nohttp-checkstyle from 0.0.4.RELEASE to 0.0.6.RELEASE for Java 17 compatibility -->
+    <spring-format.version>0.0.31</spring-format.version> <!-- MIGRATED: upgraded spring-format from 0.0.19 to 0.0.31 for Java 17 compatibility -->
   </properties>
 
   <dependencies>
@@ -49,6 +49,11 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <!-- MIGRATED: added spring-boot-starter-validation (Spring Boot 2.3+ no longer includes Bean Validation via the web starter) -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -73,8 +78,8 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
+      <groupId>com.mysql</groupId> <!-- MIGRATED: updated MySQL groupId from 'mysql' to 'com.mysql' (Spring Boot 2.7.5+ renamed the artifact) -->
+      <artifactId>mysql-connector-j</artifactId> <!-- MIGRATED: updated MySQL artifactId from 'mysql-connector-java' to 'mysql-connector-j' -->
       <scope>runtime</scope>
     </dependency>
 
@@ -148,12 +153,12 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>3.1.2</version> <!-- MIGRATED: upgraded maven-checkstyle-plugin from 3.1.0 to 3.1.2 for Java 17 compatibility -->
         <dependencies>
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>8.29</version>
+            <version>9.3</version> <!-- MIGRATED: upgraded checkstyle from 8.29 to 9.3 for Java 17 source compatibility -->
           </dependency>
           <dependency>
             <groupId>io.spring.nohttp</groupId>
