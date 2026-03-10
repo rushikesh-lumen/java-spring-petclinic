@@ -54,7 +54,7 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
-    <dependency> <!-- MIGRATED: Added spring-boot-starter-validation for Java 17 - javax.validation removed from SE -->
+    <dependency> <!-- MIGRATED: Added spring-boot-starter-validation for Java 11+ - javax.validation removed from SE -->
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-validation</artifactId>
     </dependency> <!-- MIGRATED: Required for @Valid, @NotEmpty, @Digits annotations -->
