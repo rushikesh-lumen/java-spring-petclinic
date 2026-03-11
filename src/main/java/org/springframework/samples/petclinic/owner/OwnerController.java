@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid; // MIGRATED: Updated to Jakarta EE 10 namespace
 import java.util.Collection;
 import java.util.Map;
 

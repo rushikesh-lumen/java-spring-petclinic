@@ -22,7 +22,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid; // MIGRATED: Updated to Jakarta EE 10 namespace
 import java.util.Collection;
 
 /**

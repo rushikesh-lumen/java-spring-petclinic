@@ -18,8 +18,8 @@ package org.springframework.samples.petclinic.vet;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElement; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.xml.bind.annotation.XmlRootElement; // MIGRATED: Updated to Jakarta EE 10 namespace
 
 /**
  * Simple domain object representing a list of veterinarians. Mostly here to be used for

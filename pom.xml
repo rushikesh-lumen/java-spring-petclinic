@@ -10,14 +10,14 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.2.4.RELEASE</version>
+    <version>3.2.5</version> <!-- MIGRATED: Updated Spring Boot parent to 3.2.5 for Java 17 support -->
   </parent>
   <name>petclinic</name>
 
   <properties>
 
     <!-- Generic properties -->
-    <java.version>1.8</java.version>
+    <java.version>17</java.version> <!-- MIGRATED: Updated Java version from 1.8 to 17 -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -27,9 +27,9 @@
     <webjars-jquery.version>2.2.4</webjars-jquery.version>
     <wro4j.version>1.8.0</wro4j.version>
 
-    <jacoco.version>0.8.5</jacoco.version>
-    <nohttp-checkstyle.version>0.0.4.RELEASE</nohttp-checkstyle.version>
-    <spring-format.version>0.0.19</spring-format.version>
+    <jacoco.version>0.8.11</jacoco.version> <!-- MIGRATED: Updated JaCoCo to support Java 17 bytecode -->
+    <nohttp-checkstyle.version>0.0.11</nohttp-checkstyle.version> <!-- MIGRATED: Updated nohttp-checkstyle for compatibility -->
+    <spring-format.version>0.0.41</spring-format.version> <!-- MIGRATED: Updated spring-format for Spring Boot 3.x/Jakarta EE compatibility -->
   </properties>
 
   <dependencies>
@@ -49,6 +49,10 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId> <!-- MIGRATED: Added explicit validation starter; jakarta.validation separated in Spring Boot 3.x -->
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -73,8 +77,8 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
+      <groupId>com.mysql</groupId> <!-- MIGRATED: Updated MySQL connector groupId for Spring Boot 3.x -->
+      <artifactId>mysql-connector-j</artifactId> <!-- MIGRATED: Updated MySQL connector artifactId (renamed from mysql-connector-java) -->
       <scope>runtime</scope>
     </dependency>
 
@@ -86,6 +90,12 @@
     <dependency>
       <groupId>org.ehcache</groupId>
       <artifactId>ehcache</artifactId>
+    </dependency>
+
+    <!-- JAXB API for XML binding annotations used in Vet/Vets -->
+    <dependency>
+      <groupId>jakarta.xml.bind</groupId> <!-- MIGRATED: Added Jakarta XML Binding API; required for @XmlElement/@XmlRootElement after Java 11 module removal -->
+      <artifactId>jakarta.xml.bind-api</artifactId>
     </dependency>
 
     <!-- webjars -->
@@ -148,12 +158,12 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>3.3.1</version> <!-- MIGRATED: Updated maven-checkstyle-plugin for Checkstyle 10.x support -->
         <dependencies>
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>8.29</version>
+            <version>10.12.4</version> <!-- MIGRATED: Updated Checkstyle to 10.x for Java 17 source parsing support -->
           </dependency>
           <dependency>
             <groupId>io.spring.nohttp</groupId>
@@ -193,8 +203,8 @@
               <additionalProperties>
                 <encoding.source>${project.build.sourceEncoding}</encoding.source>
                 <encoding.reporting>${project.reporting.outputEncoding}</encoding.reporting>
-                <java.source>${maven.compiler.source}</java.source>
-                <java.target>${maven.compiler.target}</java.target>
+                <java.source>${java.version}</java.source> <!-- MIGRATED: Changed from maven.compiler.source to java.version for Spring Boot 3.x compatibility -->
+                <java.target>${java.version}</java.target> <!-- MIGRATED: Changed from maven.compiler.target to java.version for Spring Boot 3.x compatibility -->
               </additionalProperties>
             </configuration>
           </execution>
