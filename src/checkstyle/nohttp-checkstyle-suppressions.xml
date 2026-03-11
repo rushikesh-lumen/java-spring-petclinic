@@ -2,6 +2,7 @@
 <!DOCTYPE suppressions PUBLIC
 		"-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
 		"https://checkstyle.org/dtds/suppressions_1_2.dtd">
+<!-- MIGRATED: checkstyle suppressions updated for Checkstyle 10.x compatible configuration -->
 <suppressions>
 	<suppress files="[\\/]build.log" checks="NoHttp"/>
 	<suppress files=".+\.(jar|git|ico|p12|gif|jks|jpg|svg)" checks="NoHttp"/>
