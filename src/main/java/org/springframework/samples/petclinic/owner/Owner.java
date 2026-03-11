@@ -98,10 +98,9 @@ public class Owner extends Person {
 
 	public List<Pet> getPets() {
 		List<Pet> sortedPets = new ArrayList<>(getPetsInternal());
-		sortedPets.sort(Comparator.comparing(Pet::getName)); // MIGRATED: Replaced
-																// deprecated
-																// PropertyComparator.sort/MutableSortDefinition
-																// with Java Comparator
+		// MIGRATED: Replaced deprecated PropertyComparator/MutableSortDefinition with
+		// Java Comparator
+		sortedPets.sort(Comparator.comparing(Pet::getName));
 		return Collections.unmodifiableList(sortedPets);
 	}
 

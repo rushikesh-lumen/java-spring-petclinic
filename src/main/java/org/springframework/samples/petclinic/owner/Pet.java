@@ -99,14 +99,9 @@ public class Pet extends NamedEntity {
 
 	public List<Visit> getVisits() {
 		List<Visit> sortedVisits = new ArrayList<>(getVisitsInternal());
-		sortedVisits.sort(Comparator.comparing(Visit::getDate).reversed()); // MIGRATED:
-																			// Replaced
-																			// deprecated
-																			// PropertyComparator.sort/MutableSortDefinition
-																			// with Java
-																			// Comparator
-																			// (date
-																			// descending)
+		// MIGRATED: Replaced deprecated PropertyComparator/MutableSortDefinition with
+		// Java Comparator (date descending)
+		sortedVisits.sort(Comparator.comparing(Visit::getDate).reversed());
 		return Collections.unmodifiableList(sortedVisits);
 	}
 

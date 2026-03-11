@@ -63,11 +63,9 @@ public class Vet extends Person {
 	@XmlElement
 	public List<Specialty> getSpecialties() {
 		List<Specialty> sortedSpecs = new ArrayList<>(getSpecialtiesInternal());
-		sortedSpecs.sort(Comparator.comparing(Specialty::getName)); // MIGRATED: Replaced
-																	// deprecated
-																	// PropertyComparator.sort/MutableSortDefinition
-																	// with Java
-																	// Comparator
+		// MIGRATED: Replaced deprecated PropertyComparator/MutableSortDefinition with
+		// Java Comparator
+		sortedSpecs.sort(Comparator.comparing(Specialty::getName));
 		return Collections.unmodifiableList(sortedSpecs);
 	}
 
