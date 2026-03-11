@@ -17,20 +17,19 @@ package org.springframework.samples.petclinic.owner;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator; // MIGRATED: Added Comparator to replace deprecated PropertyComparator
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotEmpty;
+import jakarta.persistence.CascadeType; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.persistence.Column; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.persistence.Entity; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.persistence.OneToMany; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.persistence.Table; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.validation.constraints.Digits; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.validation.constraints.NotEmpty; // MIGRATED: Updated to Jakarta EE 10 namespace
 
-import org.springframework.beans.support.MutableSortDefinition;
-import org.springframework.beans.support.PropertyComparator;
 import org.springframework.core.style.ToStringCreator;
 import org.springframework.samples.petclinic.model.Person;
 
@@ -99,7 +98,9 @@ public class Owner extends Person {
 
 	public List<Pet> getPets() {
 		List<Pet> sortedPets = new ArrayList<>(getPetsInternal());
-		PropertyComparator.sort(sortedPets, new MutableSortDefinition("name", true, true));
+		// MIGRATED: Replaced deprecated PropertyComparator/MutableSortDefinition with
+		// Java Comparator
+		sortedPets.sort(Comparator.comparing(Pet::getName));
 		return Collections.unmodifiableList(sortedPets);
 	}
 
@@ -142,9 +143,14 @@ public class Owner extends Person {
 	public String toString() {
 		return new ToStringCreator(this)
 
-				.append("id", this.getId()).append("new", this.isNew()).append("lastName", this.getLastName())
-				.append("firstName", this.getFirstName()).append("address", this.address).append("city", this.city)
-				.append("telephone", this.telephone).toString();
+			.append("id", this.getId())
+			.append("new", this.isNew())
+			.append("lastName", this.getLastName())
+			.append("firstName", this.getFirstName())
+			.append("address", this.address)
+			.append("city", this.city)
+			.append("telephone", this.telephone)
+			.toString();
 	}
 
 }

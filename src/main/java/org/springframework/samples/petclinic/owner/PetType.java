@@ -15,8 +15,8 @@
  */
 package org.springframework.samples.petclinic.owner;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import jakarta.persistence.Entity; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.persistence.Table; // MIGRATED: Updated to Jakarta EE 10 namespace
 
 import org.springframework.samples.petclinic.model.NamedEntity;
 

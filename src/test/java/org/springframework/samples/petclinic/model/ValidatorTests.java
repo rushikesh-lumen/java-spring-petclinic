@@ -19,8 +19,8 @@ package org.springframework.samples.petclinic.model;
 import java.util.Locale;
 import java.util.Set;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validator;
+import jakarta.validation.ConstraintViolation; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.validation.Validator; // MIGRATED: Updated to Jakarta EE 10 namespace
 
 import org.junit.jupiter.api.Test;
 import org.springframework.context.i18n.LocaleContextHolder;

@@ -19,20 +19,19 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator; // MIGRATED: Added Comparator to replace deprecated PropertyComparator
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import jakarta.persistence.Column; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.persistence.Entity; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.persistence.JoinColumn; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.persistence.ManyToOne; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.persistence.Table; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.persistence.Transient; // MIGRATED: Updated to Jakarta EE 10 namespace
 
-import org.springframework.beans.support.MutableSortDefinition;
-import org.springframework.beans.support.PropertyComparator;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.samples.petclinic.model.NamedEntity;
 import org.springframework.samples.petclinic.visit.Visit;
@@ -100,7 +99,9 @@ public class Pet extends NamedEntity {
 
 	public List<Visit> getVisits() {
 		List<Visit> sortedVisits = new ArrayList<>(getVisitsInternal());
-		PropertyComparator.sort(sortedVisits, new MutableSortDefinition("date", false, false));
+		// MIGRATED: Replaced deprecated PropertyComparator/MutableSortDefinition with
+		// Java Comparator (date descending)
+		sortedVisits.sort(Comparator.comparing(Visit::getDate).reversed());
 		return Collections.unmodifiableList(sortedVisits);
 	}
 

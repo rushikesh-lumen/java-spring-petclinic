@@ -15,9 +15,9 @@
  */
 package org.springframework.samples.petclinic.model;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-import javax.validation.constraints.NotEmpty;
+import jakarta.persistence.Column; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.persistence.MappedSuperclass; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.validation.constraints.NotEmpty; // MIGRATED: Updated to Jakarta EE 10 namespace (javax.validation -> jakarta.validation)
 
 /**
  * Simple JavaBean domain object representing an person.

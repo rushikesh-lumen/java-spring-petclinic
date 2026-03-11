@@ -17,10 +17,10 @@ package org.springframework.samples.petclinic.model;
 
 import java.io.Serializable;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.GeneratedValue; // MIGRATED: Updated to Jakarta EE 10 namespace (javax.persistence -> jakarta.persistence)
+import jakarta.persistence.GenerationType; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.persistence.Id; // MIGRATED: Updated to Jakarta EE 10 namespace
+import jakarta.persistence.MappedSuperclass; // MIGRATED: Updated to Jakarta EE 10 namespace
 
 /**
  * Simple JavaBean domain object with an id property. Used as a base class for objects
