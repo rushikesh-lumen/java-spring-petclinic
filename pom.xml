@@ -77,10 +77,11 @@
       <artifactId>hsqldb</artifactId>
       <scope>runtime</scope>
     </dependency>
+    <!-- MIGRATED: Replaced deprecated mysql:mysql-connector-java (CVE - no patch available) with the new canonical artifact com.mysql:mysql-connector-j:8.3.0 -->
     <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.33</version> <!-- MIGRATED: Added explicit version as Spring Boot 2.7.x does not manage this deprecated artifact -->
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>8.3.0</version>
       <scope>runtime</scope>
     </dependency>
 
